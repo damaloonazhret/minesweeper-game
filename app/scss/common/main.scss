@@ -1,0 +1,273 @@
+body {
+  background-color: #a4a4c0;
+  transition: 0.2s ease-in-out;
+
+  &.dark {
+    background-color: #232529;
+  }
+}
+
+.main {
+  display: grid;
+  grid-template-columns: repeat(6, auto);
+  width: 60vw;
+  height: 5vw;
+  font-size: 1.6vw;
+  background-color: #d1d7e5;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1vw 2vw, rgba(0, 0, 0, 0.23) 0px 1vw 2vw;
+  margin: 1vw auto;
+  transition: 0.2s ease-in-out;
+  justify-content: space-around;
+  align-content: space-around;
+
+  &.dark {
+    background-color: #484c54;
+  }
+}
+
+
+.result {
+  display: grid;
+  width: 60vw;
+  height: 30vw;
+  font-size: 1.4vw;
+  align-content: space-between;
+  background-color: #d1d7e5;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  padding: 10px;
+  margin: 4vw auto 15px;
+  transition: 0.2s ease-in-out;
+
+  &.dark {
+    background-color: #4F5256;
+    color: #DEF2FF;
+  }
+
+  div {
+    height: 2vw;
+    border: 0.2vw solid #8c8c8c;
+  }
+}
+
+
+.new-game, .level, .level-hard, .easy, .switcher, .audio-switcher {
+  display: grid;
+  width: 8vw;
+  height: 3vw;
+  background-color: #ffffff;
+  align-self: center;
+  justify-content: center;
+  align-content: center;
+  cursor: pointer;
+  user-select: none;
+  transition: 0.2s ease-in-out;
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  &.dark {
+    background-color: #6F7788;
+    color: #DEF2FF;
+  }
+}
+
+.level, .level-hard, .easy {
+  width: 7vw;
+}
+
+.audio-switcher {
+  background-color: #00ff1e;
+
+  &.off {
+    background-color: red;
+  }
+}
+
+.duration, .clicks, .flags-count, .mines-count {
+  display: grid;
+  width: 12vw;
+  height: 4vw;
+  font-size: 1.5vw;
+  background-color: #ffffff;
+  align-self: center;
+  justify-content: center;
+  align-content: center;
+  cursor: pointer;
+  user-select: none;
+  transition: 0.2s ease-in-out;
+  margin-bottom: 4vw;
+
+  &.dark {
+    background-color: #6F7788;
+    color: #DEF2FF;
+
+    &.mines-count {
+      &::placeholder {
+        color: #DEF2FF;
+      }
+    }
+  }
+}
+
+.mines-count {
+  font-size: 1vw;
+
+}
+
+
+.flags-count, .duration, .clicks, .mines-count-container {
+  position: relative;
+
+  &:hover {
+    &::after {
+      display: block;
+      content: attr(data-title);
+      position: absolute;
+      left: -1vw;
+      top: 4vw;
+      z-index: 1;
+      background: rgba(255, 255, 230, 0.9);
+      font-family: Arial, sans-serif;
+      font-size: 1.5vw;
+      padding: 0.5vw 1.5vw;
+      border: 0.2vw solid #333;
+      color: black;
+    }
+  }
+}
+
+
+.mines-count {
+  resize: none;
+  cursor: text;
+  text-align: center;
+  border: none;
+}
+
+textarea {
+  background: black;
+}
+
+.characteristics {
+  width: 10vw;
+  height: 20vw;
+  margin-left: 2vw;
+}
+
+.grid-container {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  transform: translateX(6vw);
+}
+
+.grid {
+  display: flex;
+  background-color: gray;
+  width: 40vw;
+  height: 40vw;
+  flex-wrap: wrap;
+  box-shadow: rgb(38, 57, 77) 0px 2vw 4vw -1vw;
+
+
+  &.medium {
+    width: 39vw;
+    height: 39vw;
+
+    div {
+      width: 2.6vw;
+      height: 2.6vw;
+      font-size: 2vw;
+    }
+  }
+
+
+  div {
+    width: 4vw;
+    height: 4vw;
+    background-image: url(../assets/valid.png);
+    background-size: cover;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    font-size: 3vw;
+    font-weight: 800;
+    transition: 0.2s ease-in-out all;
+    user-select: none;
+
+    &:hover {
+      background-image: url("../assets/hover.png");
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+
+    &.bomb {
+
+      //background-image: url("../assets/bomb.png"); // uncommitted for show the bomb
+
+      &.bomb-not-boom {
+        background-image: url("../assets/bomb.png");
+      }
+
+      &.bomb-boom {
+        transition: 2s;
+        background-image: url("../assets/bombRed.png");
+      }
+
+    }
+
+    &.blue-total {
+      color: blue;
+    }
+
+    &.green-total {
+      color: green;
+    }
+
+    &.red-total {
+      color: red;
+    }
+
+    &.dark-blue-total {
+      color: #000a4d;
+    }
+
+    &.burgundy-total {
+      color: #e900ff;
+    }
+
+    &.turquoise-total {
+      color: #278786;
+    }
+
+    &.black-total {
+      color: #000000;
+    }
+
+    &.gray-total {
+      color: #878787;
+    }
+
+    &.checked {
+      background-image: url("../assets/checked.png");
+    }
+
+    &.boom {
+      background-color: #6c0000;
+    }
+  }
+
+  &.hard {
+    width: 40vw;
+    height: 40vw;
+
+    div {
+      width: 1.6vw;
+      height: 1.6vw;
+      font-size: 2vw;
+    }
+  }
+}
