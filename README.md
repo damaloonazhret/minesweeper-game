@@ -1,2 +1,3 @@
 # minesweeper-game
-![damaloonazhret github io_minesweeper-game_](https://github.com/damaloonazhret/minesweeper-game/assets/84859209/3225245c-ac1f-4d77-a94c-0480805a05b1)
+
+![github com_rolling-scopes-school_damaloonazhret-JSFE2023Q1_pull_9 (1)](https://github.com/damaloonazhret/minesweeper-game/assets/84859209/6621c54f-db3e-4a9e-bdd7-c414f8b35d31)
