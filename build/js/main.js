@@ -1,19 +1,19 @@
 const body = document.querySelector('body');
 const main = document.createElement('div');
 const grid = document.createElement('div');
-const result = document.createElement('div');
 const newGame = document.createElement('div');
-const switcher = document.createElement('div');
 const duration = document.createElement('div');
+const movesClicks = document.createElement('div');
 const flagsCount = document.createElement('div');
 const minesCount = document.createElement('input');
-const movesClicks = document.createElement('div');
-const gridContainer = document.createElement('div');
-const audioSwitcher = document.createElement('div');
-const levelSwitchHard = document.createElement('div');
-const levelSwitchEasy = document.createElement('div');
-const characteristics = document.createElement('div');
 const levelSwitchMedium = document.createElement('div');
+const levelSwitchHard = document.createElement('div');
+const result = document.createElement('div');
+const levelSwitchEasy = document.createElement('div');
+const switcher = document.createElement('div');
+const audioSwitcher = document.createElement('div');
+const gridContainer = document.createElement('div');
+const characteristics = document.createElement('div');
 const minesCountContainer = document.createElement('div');
 
 for (let i = 0; i < 10; i++) {
@@ -27,28 +27,28 @@ const audioWin = new Audio('https://www.fesliyanstudios.com/play-mp3/5247');
 const audioFlag = new Audio('https://www.fesliyanstudios.com/play-mp3/7019');
 const audioFlagQuestion = new Audio('https://www.fesliyanstudios.com/play-mp3/7025');
 
-main.className = 'main';
-grid.className = 'grid';
-result.className = 'result';
 newGame.className = 'new-game';
 switcher.className = 'switcher';
-duration.className = 'duration';
-flagsCount.className = 'flags-count';
-minesCount.className = 'mines-count';
-movesClicks.className = 'clicks';
 audioSwitcher.className = 'audio-switcher';
+levelSwitchEasy.className = 'easy';
+result.className = 'result';
+minesCount.className = 'mines-count';
+minesCountContainer.className = 'mines-count-container';
 gridContainer.className = 'grid-container';
 characteristics.className = 'characteristics';
-levelSwitchEasy.className = 'easy';
-levelSwitchHard.className = 'level-hard';
 levelSwitchMedium.className = 'level';
-minesCountContainer.className = 'mines-count-container';
+levelSwitchHard.className = 'level-hard';
+duration.className = 'duration';
+flagsCount.className = 'flags-count';
+movesClicks.className = 'clicks';
+grid.className = 'grid';
+main.className = 'main';
 
-duration.setAttribute('data-title', 'Seconds counter');
 flagsCount.setAttribute('data-title', 'Flag counter');
-minesCount.setAttribute('placeholder', 'Enter number of bombs');
+duration.setAttribute('data-title', 'Seconds counter');
 movesClicks.setAttribute('data-title', 'Move counter');
 minesCountContainer.setAttribute('data-title', 'Custom bombs counter');
+minesCount.setAttribute('placeholder', 'Enter number of bombs');
 
 body.appendChild(main);
 body.appendChild(gridContainer);
@@ -130,7 +130,9 @@ const themeSwitcher = () => {
   minesCount.classList.toggle('dark');
 };
 
-switcher.addEventListener('click', themeSwitcher);
+switcher.addEventListener('click', (e) => {
+  themeSwitcher();
+});
 
 function timer() {
   if (!startTimer) {
@@ -260,10 +262,21 @@ const createContainer = () => {
     createContainer();
   };
 
-  levelSwitchEasy.addEventListener('click', easyLevel);
-  levelSwitchMedium.addEventListener('click', mediumLevel);
-  levelSwitchHard.addEventListener('click', hardLevel);
-  newGame.addEventListener('click', newGameFunction);
+  levelSwitchEasy.addEventListener('click', (e) => {
+    easyLevel();
+  });
+
+  levelSwitchMedium.addEventListener('click', (e) => {
+    mediumLevel();
+  });
+
+  levelSwitchHard.addEventListener('click', (e) => {
+    hardLevel();
+  });
+
+  newGame.addEventListener('click', (e) => {
+    newGameFunction(e);
+  });
 
   if (!localStorage.getItem('final') || localStorage.getItem('final') === '0') {
     for (let i = 0; i < width * width; i++) {
